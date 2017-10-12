@@ -3,9 +3,19 @@
 	<Product Id="*" Name="FinalSetUp" Language="1033" Version="1.0.0.0" Manufacturer="HP" UpgradeCode="bb910ebb-34c4-4246-a666-1c2a59aae098">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+     <Icon Id="app_icon.ico" SourceFile="$(var.SolutionDir)finalSetUp\icon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="app_icon.ico" />
+		
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+    
+    <WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="background.bmp" />
+    
 		<Feature Id="ProductFeature" Title="FinalSetUp" Level="1">
       <ComponentRef Id="MainApplication" />
       <ComponentGroupRef Id="ProductComponents" />
